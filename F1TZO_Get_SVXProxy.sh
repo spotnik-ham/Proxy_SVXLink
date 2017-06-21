@@ -30,7 +30,7 @@ LAT=9999
 BLAT=9999
 
 lynx -dump http://www.echolink.org/proxylist.jsp | grep Ready | grep 8100 | gawk -F '[[:space:]][[:space:]]+' '{ print $3 }' | grep -v ":" | grep -v "192." | grep -v "44."> /tmp/List-Free.txt
-NBP=`wc ./List-Free.txt | awk '{ print $1 }'`
+NBP=`wc ./List-Free.txt | gawk '{ print $1 }'`
 
 while read PROXY
 do
@@ -73,7 +73,3 @@ done < /etc/spotnik/svxlink.d/ModuleEchoLink.conf
 #
 cp /tmp/new.conf /etc/spotnik/svxlink.d/ModuleEchoLink.conf
 #
-# On redemarre SVXlink dans un Screen 
-# We restart SVXlink in a Screen 
-# 
-# METTRE ICI SA COMMANDE DE RESTART SVXLINK
